@@ -3,7 +3,6 @@ object Versions {
     //project level
     const val kotlin = "1.4.30"
     const val gradle = "4.1.3"
-    const val googleServices = "4.3.5"
     const val crashlytics = "2.7.1"
 
     //app level(required)
@@ -21,7 +20,7 @@ object Versions {
     const val interceptor = "4.9.0"
     const val coroutines = "1.4.2"
     const val glide = "4.11.0"
-    const val hilt = "2.31.2-alpha"
+    const val hilt = "2.38"
     const val room = "2.3.0-alpha01"
     const val paging = "2.1.2"
     const val quickpermissions = "0.4.0"
