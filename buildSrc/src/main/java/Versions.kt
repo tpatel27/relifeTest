@@ -23,7 +23,7 @@ object Versions {
     const val hilt = "2.38"
     const val room = "2.3.0-alpha01"
     const val paging = "2.1.2"
-    const val quickpermissions = "0.4.0"
+    const val quickPermissions = "0.4.0"
 
     //testing
     const val jUnit = "4.13.1"
@@ -35,4 +35,5 @@ object Versions {
 
     //sdp
     const val sdp = "1.0.6"
+    const val genericRv = "1.1"
 }

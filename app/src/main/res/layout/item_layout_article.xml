@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="article"
+            type="com.tejas.relifemedicalsystemtest.network.SingleArticleResponse"
+            />
+
+        <variable
+            name="position"
+            type="java.lang.Integer"
+            />
+
+        <variable
+            name="callback"
+            type="io.bibuti.recycleradapter.BaseAdapter.BaseInterface"
+            />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_4sdp"
+        app:cardElevation="@dimen/_4sdp"
+        app:cardCornerRadius="@dimen/_4sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_article_header"
+                android:layout_margin="@dimen/_16sdp"
+                style="@style/defaultTextStyle"
+                android:text="@{article.title}"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="NASA promotes East Coast Starship option at LC-49 following SpaceX interest"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_article_short_summary"
+                style="@style/defaultTextStyle"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@{article.summary}"
+                android:textSize="@dimen/_9sdp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:layout_constraintTop_toBottomOf="@+id/tv_article_header"
+                app:layout_constraintStart_toStartOf="@+id/tv_article_header"
+                app:layout_constraintEnd_toEndOf="@+id/tv_article_header"
+                tools:text="The prospect of Starship making its mark on the Space Coast entered another level this week when NASA revealed it would conduct environmental assessments on LC-49 to support Starship launch and landing operations."
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_article_date"
+                style="@style/defaultTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                app:articleDate="@{article.publishedAt}"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/tv_article_short_summary"
+                app:layout_constraintStart_toStartOf="@+id/tv_article_header"
+                app:layout_constraintEnd_toEndOf="@+id/tv_article_header"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="Dec 18, 2021"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

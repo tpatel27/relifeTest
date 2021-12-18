@@ -116,7 +116,6 @@
                 android:textAllCaps="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pin_code_TV"
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

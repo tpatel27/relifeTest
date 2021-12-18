@@ -73,5 +73,4 @@ class OnBoardViewModel @Inject constructor(
     private fun isPhoneNumberValid(number: String): Boolean {
         return number.length == 10
     }
-
 }

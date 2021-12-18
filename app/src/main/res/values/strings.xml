@@ -19,4 +19,5 @@
 
     <string name="error_unexpected">Unexpected error occurred! please again try later.</string>
     <string name="label_hint">hint</string>
+    <string name="label_feeds">Feeds</string>
 </resources>

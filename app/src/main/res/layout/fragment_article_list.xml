@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="data"
+            type="java.util.List" />
+
+        <variable
+            name="callback"
+            type="io.bibuti.recycleradapter.BaseAdapter.BaseInterface" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,11 +19,33 @@
         tools:context=".ui.articles.ArticleListFragment"
         >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_article_feed"
             style="@style/defaultTextStyle"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:text="@string/label_feeds"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_vital_history"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:layoutFile="@{@layout/item_layout_article}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:listData="@{data}"
+            app:listener="@{callback}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_layout_article"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

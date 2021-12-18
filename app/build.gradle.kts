@@ -148,7 +148,7 @@ dependencies {
 //    implementation("com.google.firebase:firebase-crashlytics-ktx")
 
     //permissions handler
-    implementation("com.github.quickpermissions:quickpermissions-kotlin:${Versions.quickpermissions}")
+    implementation("com.github.quickpermissions:quickpermissions-kotlin:${Versions.quickPermissions}")
 
     //timber logger
     implementation("com.jakewharton.timber:timber:${Versions.timber}")
@@ -158,6 +158,9 @@ dependencies {
 
     //sdp
     implementation("com.intuit.sdp:sdp-android:${Versions.sdp}")
+
+    //genericRv
+    implementation("com.github.bibutikoley:GenericRecyclerView:${Versions.genericRv}")
 
 
     //test libs

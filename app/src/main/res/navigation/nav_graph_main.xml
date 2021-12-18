@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
+    app:startDestination="@id/articleListFragment"
     >
 
+    <fragment
+        android:id="@+id/articleListFragment"
+        android:name="com.tejas.relifemedicalsystemtest.ui.articles.ArticleListFragment"
+        android:label="ArticleListFragment"
+        tools:layout="@layout/fragment_article_list"
+        >
+
+        <action
+            android:id="@+id/moveToSingleArticle"
+            app:destination="@id/singleArticleFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/singleArticleFragment"
+        android:name="com.tejas.relifemedicalsystemtest.ui.articles.SingleArticleFragment"
+        android:label="SingleArticleFragment"
+        tools:layout="@layout/fragment_single_article"
+        >
+
+        <action
+            android:id="@+id/moveToArticleList"
+            app:destination="@id/articleListFragment"
+            />
+    </fragment>
 
 </navigation>

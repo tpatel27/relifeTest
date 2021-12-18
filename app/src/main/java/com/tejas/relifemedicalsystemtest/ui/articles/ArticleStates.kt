@@ -1,11 +1,11 @@
-package com.tejas.relifemedicalsystemtest.ui.onboarding
+package com.tejas.relifemedicalsystemtest.ui.articles
 
-sealed class OnBoardStates
+sealed class ArticleStates
 
 data class FailedOnBoardState(
     val errorMessage: String? = "",
-) : OnBoardStates()
+) : ArticleStates()
 
 data class SuccessfulOnBoardState(
     val isDataValid: Boolean = false
-) : OnBoardStates()
+) : ArticleStates()
