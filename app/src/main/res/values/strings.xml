@@ -3,9 +3,15 @@
 
     <!--labels-->
     <string name="label_enter_phone_number">Phone Number</string>
-    <string name="label_enter_email_address">Email Address</string>
+    <string name="label_enter_email_address">Email Address <font fgcolor="#ff9a1d1d">(Optional)</font></string>
     <string name="label_login">Login</string>
     <string name="label_sign_up">Sign Up</string>
     <string name="label_first_name">First name</string>
     <string name="label_last_name">Last name</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_enter_pin">Enter OTP</string>
+    <string name="desc_enter_the_otp_you_received_on_your_registered_number_to_proceed">Enter the otp you received on your registered number to proceed.</string>
+    <string name="label_submit">Submit</string>
+    <string name="label_cancel">Cancel</string>
+    <string name="label_resend">Re-send</string>
 </resources>

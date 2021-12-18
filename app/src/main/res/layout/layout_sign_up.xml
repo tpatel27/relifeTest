@@ -8,7 +8,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv_sign_up"
         android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="@dimen/_300sdp"
         android:layout_margin="@dimen/_4sdp"
         app:cardCornerRadius="@dimen/_4sdp"
         app:cardElevation="@dimen/_2sdp"
@@ -20,6 +20,21 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_sign_up_login"
+                style="@style/defaultTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_16sdp"
+                android:text="@string/label_login"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:layout_constraintBottom_toTopOf="@+id/tv_sign_up"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tv_sign_up"

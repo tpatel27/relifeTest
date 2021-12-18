@@ -1,7 +1,8 @@
-package com.tejas.relifemedicalsystemtest
+package com.tejas.relifemedicalsystemtest.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.tejas.relifemedicalsystemtest.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

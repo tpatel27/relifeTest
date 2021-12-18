@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.tejas.relifemedicalsystemtest.MainViewModel
+import com.tejas.relifemedicalsystemtest.ui.MainViewModel
 
 abstract class BaseFragment<T : ViewDataBinding> constructor(@LayoutRes private val layoutResId: Int) :
     Fragment() {

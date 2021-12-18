@@ -1,4 +1,4 @@
-package com.tejas.relifemedicalsystemtest
+package com.tejas.relifemedicalsystemtest.ui
 
 import com.tejas.relifemedicalsystemtest.core.NetworkToUIProvider
 import com.tejas.relifemedicalsystemtest.core.State
