@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
     </data>
@@ -8,12 +9,36 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.onboarding.OnBoardFragment">
+        tools:context=".ui.onboarding.OnBoardFragment"
+        >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+        <include
+            android:id="@+id/layout_login"
+            layout="@layout/layout_login"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_margin="@dimen/_4sdp"
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:visibility="visible"
+            />
+
+        <include
+            android:id="@+id/layout_sign_up"
+            layout="@layout/layout_sign_up"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_margin="@dimen/_4sdp"
+            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:visibility="gone"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

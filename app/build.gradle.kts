@@ -156,6 +156,9 @@ dependencies {
     //pinview
     implementation("com.github.aabhasr1:OtpView:${Versions.pinView}")
 
+    //sdp
+    implementation("com.intuit.sdp:sdp-android:${Versions.sdp}")
+
 
     //test libs
     //junit

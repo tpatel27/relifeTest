@@ -32,4 +32,7 @@ object Versions {
 
     //pin view
     const val pinView = "v1.1.2-ktx"
+
+    //sdp
+    const val sdp = "1.0.6"
 }

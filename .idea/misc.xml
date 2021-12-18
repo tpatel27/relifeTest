@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/layout/fragment_article_list.xml" value="0.328125" />
         <entry key="app/src/main/res/layout/fragment_on_board.xml" value="0.328125" />
         <entry key="app/src/main/res/layout/fragment_single_article.xml" value="0.328125" />
+        <entry key="app/src/main/res/layout/layout_login.xml" value="0.328125" />
+        <entry key="app/src/main/res/layout/layout_sign_up.xml" value="0.328125" />
       </map>
     </option>
   </component>
