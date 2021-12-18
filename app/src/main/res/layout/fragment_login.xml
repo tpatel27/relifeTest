@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="ui.onboarding.LoginFragment"
+        tools:context=".ui.onboarding.routes.LoginFragment"
         >
 
         <com.google.android.material.card.MaterialCardView
@@ -20,7 +20,7 @@
             android:layout_margin="@dimen/_4sdp"
             app:cardCornerRadius="@dimen/_4sdp"
             app:cardElevation="@dimen/_4sdp"
-            app:layout_constraintVertical_bias="0.35"
+            app:layout_constraintVertical_bias="0.65"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
