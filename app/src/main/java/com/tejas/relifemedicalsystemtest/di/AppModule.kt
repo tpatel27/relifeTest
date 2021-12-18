@@ -23,16 +23,17 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesGson(): Gson = GsonBuilder().create()
+    fun provideBaseUrl() = BuildConfig.USER_BASE_URL
 
     @Singleton
     @Provides
-    fun providesDataRequestInterceptor() = HttpLoggingInterceptor { message ->
+    fun provideGson(): Gson = GsonBuilder().create()
+
+    @Singleton
+    @Provides
+    fun provideDataRequestInterceptor() = HttpLoggingInterceptor { message ->
         Timber.i(message)
-    }.apply {
-        level =
-            if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.BASIC
-    }
+    }.apply { level = HttpLoggingInterceptor.Level.BODY }
 
     @Singleton
     @Provides
@@ -46,10 +47,6 @@ object AppModule {
         .connectTimeout(1, TimeUnit.MINUTES)
         .callTimeout(1, TimeUnit.MINUTES)
         .build()
-
-    @Singleton
-    @Provides
-    fun provideGson(): Gson = GsonBuilder().create()
 
     @Singleton
     @Provides

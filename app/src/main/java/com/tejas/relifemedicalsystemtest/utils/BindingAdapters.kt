@@ -1,7 +1,11 @@
 package com.tejas.relifemedicalsystemtest.utils
 
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.bumptech.glide.Glide
+import com.tejas.relifemedicalsystemtest.R
+import timber.log.Timber
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -19,6 +23,17 @@ object BindingAdapters {
         }
     }
 
+    @BindingAdapter("imageUrl")
+    @JvmStatic
+    fun loadImage(view: ImageView, url: String?) {
+        view.apply {
+            Glide.with(view.context)
+                .load(url)
+                .placeholder(R.drawable.ic_heartbeat)
+                .into(view)
+        }
+    }
+
     private fun formatDate(input: String?): String {
         return try {
             if (input.isNullOrEmpty()) {
@@ -29,6 +44,7 @@ object BindingAdapters {
             sdf.applyPattern(Constants.outputPattern)
             sdf.format(date ?: Date())
         } catch (e: Exception) {
+            Timber.e(e)
             ""
         }
     }

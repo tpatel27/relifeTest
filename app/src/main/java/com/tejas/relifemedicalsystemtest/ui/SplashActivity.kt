@@ -10,7 +10,6 @@ import com.tejas.relifemedicalsystemtest.ui.onboarding.OnBoardingActivity
 import com.tejas.relifemedicalsystemtest.utils.clearTaskAndOpenActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class SplashActivity : BaseActivity() {
 

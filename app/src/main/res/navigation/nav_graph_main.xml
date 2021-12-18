@@ -26,6 +26,11 @@
         tools:layout="@layout/fragment_single_article"
         >
 
+        <argument
+            android:name="articleData"
+            app:argType="com.tejas.relifemedicalsystemtest.network.SingleArticleResponse"
+            />
+
         <action
             android:id="@+id/moveToArticleList"
             app:destination="@id/articleListFragment"

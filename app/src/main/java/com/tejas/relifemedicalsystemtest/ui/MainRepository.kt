@@ -9,14 +9,5 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class MainRepository @Inject constructor(
-    private val api: SpaceApi,
 ) {
-
-    fun getArticlesList(): Flow<State<MutableList<SingleArticleResponse>>> {
-        return object : NetworkToUIProvider<MutableList<SingleArticleResponse>>() {
-            override suspend fun fetchFromRemote(): Response<MutableList<SingleArticleResponse>> {
-                return api.getArticleList()
-            }
-        }.asFlow()
-    }
 }

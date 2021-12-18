@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="article"
+            name="data"
             type="com.tejas.relifemedicalsystemtest.network.SingleArticleResponse"
             />
 
@@ -23,9 +23,12 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_4sdp"
+        android:layout_margin="@dimen/_8sdp"
         app:cardElevation="@dimen/_4sdp"
-        app:cardCornerRadius="@dimen/_4sdp">
+        app:cardCornerRadius="@dimen/_4sdp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="@{(v) -> callback.onItemClicked(data, v, position)}"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,7 +39,7 @@
                 android:id="@+id/tv_article_header"
                 android:layout_margin="@dimen/_16sdp"
                 style="@style/defaultTextStyle"
-                android:text="@{article.title}"
+                android:text="@{data.title}"
                 android:textSize="@dimen/_12sdp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +53,7 @@
                 style="@style/defaultTextStyle"
                 android:layout_width="0dp"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:text="@{article.summary}"
+                android:text="@{data.summary}"
                 android:textSize="@dimen/_9sdp"
                 android:ellipsize="end"
                 android:maxLines="2"
@@ -65,8 +68,8 @@
                 style="@style/defaultTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
-                app:articleDate="@{article.publishedAt}"
+                android:layout_marginBottom="@dimen/_12sdp"
+                app:articleDate="@{data.publishedAt}"
                 android:textSize="@dimen/_9sdp"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/tv_article_short_summary"

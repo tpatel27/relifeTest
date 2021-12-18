@@ -13,7 +13,7 @@
         >
 
         <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment_home_nav_host"
+            android:id="@+id/fragment_auth_nav_host"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="0dp"
             android:layout_height="0dp"

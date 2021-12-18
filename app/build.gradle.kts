@@ -11,8 +11,6 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
-//    id("com.google.gms.google-services")
-//    id("com.google.firebase.crashlytics")
 }
 
 val propertiesFile = rootProject.file("Project.properties")
@@ -62,20 +60,19 @@ android {
             buildConfigField(
                 "String",
                 "USER_BASE_URL",
-                properties["STAGING_USER_BASE_URL"].toString()
+                properties["STAGING_BASE_URL"].toString()
             )
         }
         create("production") {
             buildConfigField(
                 "String",
                 "USER_BASE_URL",
-                properties["PRODUCTION_USER_BASE_URL"].toString()
+                properties["PRODUCTION_BASE_URL"].toString()
             )
         }
     }
 
     compileOptions {
-//        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
