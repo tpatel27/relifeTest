@@ -7,6 +7,7 @@ import com.tejas.relifemedicalsystemtest.BuildConfig
 import com.tejas.relifemedicalsystemtest.data.SessionManager
 import com.tejas.relifemedicalsystemtest.data.SharedPreferencesSessionManager
 import com.tejas.relifemedicalsystemtest.network.NetworkInterceptor
+import com.tejas.relifemedicalsystemtest.network.PicApi
 import com.tejas.relifemedicalsystemtest.network.SpaceApi
 import dagger.Module
 import dagger.Provides
@@ -26,7 +27,13 @@ object AppModule {
 
     @Singleton
     @Provides
+    @BaseUrl
     fun provideBaseUrl() = BuildConfig.USER_BASE_URL
+
+    @Singleton
+    @Provides
+    @ImageBaseUrl
+    fun provideImageBaseUrl() = BuildConfig.USER_IMAGE_URL
 
     @Singleton
     @Provides
@@ -64,7 +71,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNetworkBuilder(
+    @BaseRetrofitInstance
+    fun provideBaseApiBuilder(
+        @BaseUrl
         baseUrl: String,
         supportClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
@@ -76,7 +85,29 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNetworkInstance(
+    @ImageRetrofitInstance
+    fun provideImageApiBuilder(
+        @ImageBaseUrl
+        baseUrl: String,
+        supportClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit = Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .addConverterFactory(gsonConverterFactory)
+        .client(supportClient)
+        .build()
+
+    @Singleton
+    @Provides
+    fun provideBaseInstance(
+        @BaseRetrofitInstance
         networkBuilder: Retrofit
     ): SpaceApi = networkBuilder.create(SpaceApi::class.java)
+
+    @Singleton
+    @Provides
+    fun provideImageInstance(
+        @ImageRetrofitInstance
+        networkBuilder: Retrofit
+    ): PicApi = networkBuilder.create(PicApi::class.java)
 }

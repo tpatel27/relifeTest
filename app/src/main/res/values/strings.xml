@@ -30,4 +30,8 @@
     <string name="otp_hint">"OTP is 123456"</string>
     <string name="label_by">By</string>
     <string name="label_source_separator">|</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_gallery">Gallery</string>
+    <string name="label_no_images_found">No Images found</string>
 </resources>

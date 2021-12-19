@@ -11,6 +11,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import androidx.annotation.RequiresApi
 import com.tejas.relifemedicalsystemtest.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -21,6 +22,10 @@ import okhttp3.Request
 import timber.log.Timber
 import java.io.File
 import java.io.OutputStream
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 object Helpers {
 
@@ -68,5 +73,10 @@ object Helpers {
         val req = Request.Builder().url(url).build()
         val res = client.newCall(req).execute()
         BitmapFactory.decodeStream(res.body?.byteStream())
+    }
+
+    fun getToday(pattern: String): String {
+        val sdf = SimpleDateFormat(pattern, Locale.getDefault())
+        return sdf.format(Date())
     }
 }

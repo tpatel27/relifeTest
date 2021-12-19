@@ -62,6 +62,7 @@
                 app:srcCompat="@drawable/ic_download_image"
                 android:layout_gravity="bottom|end"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:visibility="gone"
                 />
 
         </com.google.android.material.card.MaterialCardView>

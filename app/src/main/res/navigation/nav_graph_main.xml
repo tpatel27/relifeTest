@@ -17,6 +17,11 @@
             android:id="@+id/moveToSingleArticle"
             app:destination="@id/singleArticleFragment"
             />
+
+        <action
+            android:id="@+id/moveToImagesAction"
+            app:destination="@id/imageListFragment"
+            />
     </fragment>
 
     <fragment
@@ -33,6 +38,18 @@
 
         <action
             android:id="@+id/moveToArticleList"
+            app:destination="@id/articleListFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/imageListFragment"
+        android:name="com.tejas.relifemedicalsystemtest.ui.images.ImageListFragment"
+        android:label="ImageListFragment"
+        tools:layout="@layout/fragment_image_list"
+        >
+
+        <action
+            android:id="@+id/moveToArticlesAction"
             app:destination="@id/articleListFragment"
             />
     </fragment>

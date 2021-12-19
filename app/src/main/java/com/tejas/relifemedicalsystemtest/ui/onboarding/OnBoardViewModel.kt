@@ -1,14 +1,19 @@
 package com.tejas.relifemedicalsystemtest.ui.onboarding
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.tejas.relifemedicalsystemtest.data.models.SignUpModel
+import com.tejas.relifemedicalsystemtest.utils.Constants
+import com.tejas.relifemedicalsystemtest.utils.SharedPref
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardViewModel @Inject constructor() : ViewModel() {
+
+    private lateinit var sharedPref: SharedPref
 
     private val _loginPhoneState = MutableLiveData<OnBoardStates>()
     val loginPhoneState: LiveData<OnBoardStates> = _loginPhoneState
@@ -33,7 +38,7 @@ class OnBoardViewModel @Inject constructor() : ViewModel() {
         }
     }
 
-    fun observeSignUpDataStates(model: SignUpModel) {
+    fun observeSignUpDataStates(model: SignUpModel, context: Context) {
         when {
             model.firstName.isEmpty() -> _signUpState.value = FailedOnBoardState(
                 errorMessage = "First name cannot be empty."
@@ -51,6 +56,11 @@ class OnBoardViewModel @Inject constructor() : ViewModel() {
                 errorMessage = "Invalid phone number."
             )
 
+            numberExists(context = context, number = model.phoneNumber) -> _signUpState.value =
+                FailedOnBoardState(
+                    errorMessage = "Phone Number Already registered, please login"
+                )
+
             else -> _signUpState.value = SuccessfulOnBoardState(isDataValid = true)
         }
     }
@@ -67,6 +77,11 @@ class OnBoardViewModel @Inject constructor() : ViewModel() {
                 errorMessage = "Entered OTP is incorrect"
             )
         }
+    }
+
+    private fun numberExists(context: Context, number: String): Boolean {
+        sharedPref = SharedPref(context)
+        return number in sharedPref.getPhoneNumbers(Constants.SHARED_PREF_PHONE)
     }
 
     private fun isPhoneNumberValid(number: String): Boolean {

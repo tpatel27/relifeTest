@@ -62,12 +62,32 @@ android {
                 "USER_BASE_URL",
                 properties["STAGING_BASE_URL"].toString()
             )
+            buildConfigField(
+                "String",
+                "USER_IMAGE_API_KEY",
+                properties["STAGING_API_KEY"].toString()
+            )
+            buildConfigField(
+                "String",
+                "USER_IMAGE_URL",
+                properties["STAGING_IMAGE_URL"].toString()
+            )
         }
         create("production") {
             buildConfigField(
                 "String",
                 "USER_BASE_URL",
                 properties["PRODUCTION_BASE_URL"].toString()
+            )
+            buildConfigField(
+                "String",
+                "USER_IMAGE_API_KEY",
+                properties["PRODUCTION_API_KEY"].toString()
+            )
+            buildConfigField(
+                "String",
+                "USER_IMAGE_URL",
+                properties["PRODUCTION_IMAGE_URL"].toString()
             )
         }
     }

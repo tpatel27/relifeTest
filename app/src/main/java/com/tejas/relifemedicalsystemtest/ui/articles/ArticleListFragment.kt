@@ -44,6 +44,10 @@ class ArticleListFragment :
             showLogoutConfirmation()
         }
 
+        binding.ivImages.setOnClickListener {
+            findNavController().navigate(R.id.imageListFragment)
+        }
+
         observeArticles()
     }
 
