@@ -70,8 +70,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                     phone = binding.tiPhone.text?.trim().toString()
                 )
             }
-            R.id.tv_login_sign_up ->
-                findNavController().navigate(LoginFragmentDirections.moveToSignUpAction())
+            R.id.tv_login_sign_up -> findNavController().navigate(LoginFragmentDirections.moveToSignUpAction())
         }
     }
 }

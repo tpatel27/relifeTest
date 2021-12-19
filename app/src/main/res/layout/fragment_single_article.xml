@@ -66,19 +66,46 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_single_article_source_by"
+            style="@style/defaultTextStyle"
+            android:layout_width="wrap_content"
+            android:text="@string/label_by"
+            android:textSize="@dimen/_9sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="@+id/cv_article_image"
+            app:layout_constraintTop_toBottomOf="@+id/cv_article_image"
+            tools:text="@string/label_by"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_single_article_source"
             style="@style/defaultTextStyle"
             android:layout_width="wrap_content"
-            android:text="@{`By` + article.newsSite + ` |`}"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:text="@{article.newsSite}"
             android:textSize="@dimen/_9sdp"
             android:clickable="true"
             android:focusable="true"
             android:linksClickable="true"
-            android:textColorLink="@color/colorAccent"
+            android:textColor="@color/colorAccent"
+            android:autoLink="web"
             android:layout_marginTop="@dimen/_16sdp"
-            app:layout_constraintStart_toStartOf="@+id/cv_article_image"
+            app:layout_constraintStart_toEndOf="@+id/tv_single_article_source_by"
             app:layout_constraintTop_toBottomOf="@+id/cv_article_image"
-            tools:text="By Arstechnica |"
+            tools:text="NASA"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_single_article_separator"
+            style="@style/defaultTextStyle"
+            android:layout_width="wrap_content"
+            android:text="@string/label_source_separator"
+            android:textSize="@dimen/_9sdp"
+            android:layout_marginStart="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_single_article_source"
+            app:layout_constraintStart_toEndOf="@+id/tv_single_article_source"
+            app:layout_constraintTop_toTopOf="@+id/tv_single_article_source"
+            tools:text=" | "
             />
 
         <com.google.android.material.textview.MaterialTextView
@@ -89,7 +116,7 @@
             android:layout_marginStart="@dimen/_2sdp"
             app:articleDate="@{article.publishedAt}"
             app:layout_constraintBottom_toBottomOf="@+id/tv_single_article_source"
-            app:layout_constraintStart_toEndOf="@+id/tv_single_article_source"
+            app:layout_constraintStart_toEndOf="@+id/tv_single_article_separator"
             app:layout_constraintTop_toTopOf="@+id/tv_single_article_source"
             tools:text="Dec 18, 2021"
             />

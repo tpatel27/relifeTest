@@ -4,11 +4,11 @@ import com.tejas.relifemedicalsystemtest.network.SingleArticleResponse
 
 sealed class ArticleStates
 
-data class FailedOnArticleState(
+data class FailedArticleState(
     val errorMessage: String? = "",
 ) : ArticleStates()
 
-data class SuccessfulOnArticleState(
+data class SuccessfulArticleState(
     val isDataValid: Boolean = false
 ) : ArticleStates()
 

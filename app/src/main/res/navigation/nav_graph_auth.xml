@@ -33,6 +33,8 @@
             app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_left"
             app:exitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/nav_graph_auth"
+            app:popUpToInclusive="true"
             />
     </fragment>
 </navigation>

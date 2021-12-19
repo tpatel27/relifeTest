@@ -78,8 +78,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
                     )
                 )
             }
-            R.id.tv_sign_up_login ->
-                findNavController().navigate(SignUpFragmentDirections.moveToLoginAction())
+            R.id.tv_sign_up_login -> findNavController().navigateUp()
         }
     }
 }

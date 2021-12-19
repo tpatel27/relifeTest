@@ -41,4 +41,15 @@
         <item name="fontFamily">@font/montserrat</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="progressBarStyle" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:layout_width">@dimen/_30sdp</item>
+        <item name="android:layout_height">@dimen/_30sdp</item>
+        <item name="android:layout_margin">@dimen/_8sdp</item>
+        <item name="android:theme">@style/progressBarColor</item>
+    </style>
+
+    <style name="progressBarColor">
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 </resources>

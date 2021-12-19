@@ -53,7 +53,7 @@ class FragmentOtpDialog(
         }
 
         dialogBinding.tvOtpHint.setOnClickListener {
-            Toast.makeText(requireActivity(), "OTP is 123456", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), getString(R.string.otp_hint), Toast.LENGTH_SHORT).show()
         }
 
         dialogBinding.tvOtpSubmit.setOnClickListener {
@@ -75,7 +75,7 @@ class FragmentOtpDialog(
                 is SuccessfulOnBoardState -> {
                     if (otpCodeState.isDataValid) {
                         lifecycleScope.launch {
-                            listener.otpSuccessListener(getString(R.string.label_otp_success))
+                            listener.otpSuccessListener(getString(R.string.desc_otp_success))
                             dismiss()
                         }
                     } else {

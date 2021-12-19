@@ -10,7 +10,6 @@ import com.tejas.relifemedicalsystemtest.databinding.FragmentArticleListBinding
 import com.tejas.relifemedicalsystemtest.network.SingleArticleResponse
 import dagger.hilt.android.AndroidEntryPoint
 import io.bibuti.recycleradapter.BaseAdapter
-import timber.log.Timber
 import java.util.*
 
 @AndroidEntryPoint
@@ -24,6 +23,10 @@ class ArticleListFragment :
         super.onViewCreated(view, savedInstanceState)
         binding.callback = this@ArticleListFragment
         viewModel.getArticlesList()
+
+        binding.swipeRefreshFeeds.setOnRefreshListener {
+            viewModel.getArticlesList()
+        }
         observeArticles()
     }
 
@@ -33,11 +36,17 @@ class ArticleListFragment :
             androidx.lifecycle.Observer { response ->
                 val result = response ?: return@Observer
                 when {
-                    result.isLoading -> Timber.w("Loading")
+                    result.isLoading -> binding.pbArticles.show()
                     result.success -> {
+                        binding.pbArticles.hide()
+                        if (binding.swipeRefreshFeeds.isRefreshing) {
+                            binding.swipeRefreshFeeds.isRefreshing = false
+                        }
+                        binding.noData = result.responseList.isEmpty()
                         binding.data = result.responseList
                     }
                     else -> {
+                        binding.pbArticles.hide()
                         showErrorSnack(result.message)
                     }
                 }
@@ -46,7 +55,9 @@ class ArticleListFragment :
 
     override fun onItemClicked(dataType: Any?, view: View?, position: Int) {
         val moveToSingleArticle =
-            ArticleListFragmentDirections.moveToSingleArticle(articleData = (dataType as SingleArticleResponse))
+            ArticleListFragmentDirections.moveToSingleArticle(
+                articleData = (dataType as SingleArticleResponse)
+            )
         findNavController().navigate(moveToSingleArticle)
     }
 

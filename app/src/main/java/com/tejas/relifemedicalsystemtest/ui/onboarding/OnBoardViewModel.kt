@@ -8,8 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class OnBoardViewModel @Inject constructor(
-) : ViewModel() {
+class OnBoardViewModel @Inject constructor() : ViewModel() {
 
     private val _loginPhoneState = MutableLiveData<OnBoardStates>()
     val loginPhoneState: LiveData<OnBoardStates> = _loginPhoneState
