@@ -1,7 +1,6 @@
 package com.tejas.relifemedicalsystemtest.ui.images
 
 import android.Manifest
-import android.app.AlertDialog
 import android.app.DownloadManager
 import android.content.Context
 import android.content.pm.PackageManager
@@ -9,27 +8,20 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.Window
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import com.tejas.relifemedicalsystemtest.BuildConfig
 import com.tejas.relifemedicalsystemtest.R
 import com.tejas.relifemedicalsystemtest.core.BaseFragment
 import com.tejas.relifemedicalsystemtest.databinding.FragmentImageListBinding
-import com.tejas.relifemedicalsystemtest.databinding.LayoutImageFullscreenBinding
 import com.tejas.relifemedicalsystemtest.network.HitsItem
 import com.tejas.relifemedicalsystemtest.ui.callbacks.OnDialogListeners
-import com.tejas.relifemedicalsystemtest.ui.onboarding.routes.OtpDialogFragment
 import com.tejas.relifemedicalsystemtest.utils.Constants
 import com.tejas.relifemedicalsystemtest.utils.Helpers
 import com.tejas.relifemedicalsystemtest.utils.toast
