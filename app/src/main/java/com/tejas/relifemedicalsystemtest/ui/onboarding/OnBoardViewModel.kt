@@ -24,7 +24,7 @@ class OnBoardViewModel @Inject constructor() : ViewModel() {
     private val _otpState = MutableLiveData<OnBoardStates>()
     val otpState: LiveData<OnBoardStates> = _otpState
 
-    fun observePhoneStates(phone: String) {
+    fun observePhoneStates(phone: String, context: Context) {
         when {
             phone.isEmpty() -> _loginPhoneState.value = FailedOnBoardState(
                 errorMessage = "Phone number cannot be empty."
@@ -33,6 +33,11 @@ class OnBoardViewModel @Inject constructor() : ViewModel() {
             !isPhoneNumberValid(phone) -> _loginPhoneState.value = FailedOnBoardState(
                 errorMessage = "Invalid phone number."
             )
+
+            !numberExists(context = context, number = phone) -> _loginPhoneState.value =
+                FailedOnBoardState(
+                    errorMessage = "Phone number not registered, please sign up"
+                )
 
             else -> _loginPhoneState.value = SuccessfulOnBoardState(isDataValid = true)
         }
@@ -58,7 +63,7 @@ class OnBoardViewModel @Inject constructor() : ViewModel() {
 
             numberExists(context = context, number = model.phoneNumber) -> _signUpState.value =
                 FailedOnBoardState(
-                    errorMessage = "Phone Number Already registered, please login"
+                    errorMessage = "Phone number already registered, please login"
                 )
 
             else -> _signUpState.value = SuccessfulOnBoardState(isDataValid = true)

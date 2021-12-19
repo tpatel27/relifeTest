@@ -75,7 +75,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
         when (v?.id) {
             R.id.btn_login -> {
                 viewModel.observePhoneStates(
-                    phone = binding.tiPhone.text?.trim().toString()
+                    phone = binding.tiPhone.text?.trim().toString(),
+                    context = requireActivity()
                 )
             }
             R.id.tv_login_sign_up -> findNavController().navigate(LoginFragmentDirections.moveToSignUpAction())
