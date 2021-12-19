@@ -11,11 +11,11 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.livinglifetechway.quickpermissions_kotlin.runWithPermissions
 import com.tejas.relifemedicalsystemtest.R
 import com.tejas.relifemedicalsystemtest.core.BaseFragment
@@ -32,6 +32,11 @@ class SingleArticleFragment :
     BaseFragment<FragmentSingleArticleBinding>(R.layout.fragment_single_article) {
 
     private val singleArticleArgs by navArgs<SingleArticleFragmentArgs>()
+
+    private val materialAlertDialogBuilder: MaterialAlertDialogBuilder by lazy {
+        MaterialAlertDialogBuilder(requireContext())
+    }
+
     private var fileName = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -126,18 +131,17 @@ class SingleArticleFragment :
     }
 
     private fun showPermissionDeniedDialog() {
-        AlertDialog.Builder(requireActivity()).apply {
-            setCancelable(true)
-            setMessage(getString(R.string.desc_provide_permissions))
-            setPositiveButton(android.R.string.ok) { dialog, _ ->
-                dialog.dismiss()
-                ActivityCompat.requestPermissions(
-                    requireActivity(),
-                    arrayOf(Manifest.permission.ACCESS_MEDIA_LOCATION),
-                    Constants.REQUEST_STORAGE
-                )
-            }
-        }.show()
+        materialAlertDialogBuilder.setMessage(getString(R.string.desc_provide_permissions))
+        materialAlertDialogBuilder.setCancelable(true)
+        materialAlertDialogBuilder.setPositiveButton(android.R.string.ok) { d, _ ->
+            d.dismiss()
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.ACCESS_MEDIA_LOCATION),
+                Constants.REQUEST_STORAGE
+            )
+        }
+        materialAlertDialogBuilder.show()
     }
 
     override fun onRequestPermissionsResult(

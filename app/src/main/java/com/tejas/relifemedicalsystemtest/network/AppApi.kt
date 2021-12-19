@@ -12,6 +12,10 @@ interface SpaceApi {
     @GET("v3/articles")
     suspend fun getArticlesList(): Response<List<SingleArticleResponse>>
 
+    /*
+    * Not using this api since same data is obtained from the main api
+    * and this only increases one unnecessary api call
+    */
     @GET("v3/articles/{id}")
     suspend fun getSingleArticle(
         @Path("id") id: Int,
@@ -54,19 +58,18 @@ data class SingleArticleResponse(
     val updatedAt: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString() ?: "",
-        parcel.readByte() != 0.toByte(),
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.readInt(),
-        parcel.readString() ?: "",
-        parcel.readString() ?: "",
-        parcel.createTypedArrayList(LaunchItem) ?: mutableListOf(),
-        parcel.createTypedArrayList(EventItem) ?: mutableListOf(),
-        parcel.readString() ?: ""
-    ) {
-    }
+        summary =parcel.readString() ?: "",
+        featured = parcel.readByte() != 0.toByte(),
+        publishedAt = parcel.readString() ?: "",
+        imageUrl = parcel.readString() ?: "",
+        newsSite = parcel.readString() ?: "",
+        id = parcel.readInt(),
+        title = parcel.readString() ?: "",
+        url = parcel.readString() ?: "",
+        launches = parcel.createTypedArrayList(LaunchItem) ?: mutableListOf(),
+        events = parcel.createTypedArrayList(EventItem) ?: mutableListOf(),
+        updatedAt = parcel.readString() ?: ""
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(summary)
@@ -143,8 +146,7 @@ data class EventItem(
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(provider)

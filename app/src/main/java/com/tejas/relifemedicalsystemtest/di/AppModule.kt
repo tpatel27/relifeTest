@@ -1,8 +1,11 @@
 package com.tejas.relifemedicalsystemtest.di
 
+import android.app.Application
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.tejas.relifemedicalsystemtest.BuildConfig
+import com.tejas.relifemedicalsystemtest.data.SessionManager
+import com.tejas.relifemedicalsystemtest.data.SharedPreferencesSessionManager
 import com.tejas.relifemedicalsystemtest.network.NetworkInterceptor
 import com.tejas.relifemedicalsystemtest.network.SpaceApi
 import dagger.Module
@@ -34,6 +37,11 @@ object AppModule {
     fun provideDataRequestInterceptor() = HttpLoggingInterceptor { message ->
         Timber.i(message)
     }.apply { level = HttpLoggingInterceptor.Level.BODY }
+
+    @Singleton
+    @Provides
+    fun provideSessionManager(application: Application): SessionManager =
+        SharedPreferencesSessionManager(application)
 
     @Singleton
     @Provides

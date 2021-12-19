@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <data>
 
@@ -131,7 +132,8 @@
             app:layout_constraintEnd_toEndOf="@+id/cv_article_image"
             app:layout_constraintStart_toStartOf="@+id/cv_article_image"
             app:layout_constraintTop_toBottomOf="@+id/tv_single_article_source"
-            tools:text="NASA promotes East Coast Starship option at LC-49 following SpaceX interest" />
+            tools:text="NASA promotes East Coast Starship option at LC-49 following SpaceX interest"
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_article_short_summary"

@@ -20,9 +20,10 @@ import com.tejas.relifemedicalsystemtest.ui.callbacks.OnDialogListeners
 import com.tejas.relifemedicalsystemtest.ui.onboarding.FailedOnBoardState
 import com.tejas.relifemedicalsystemtest.ui.onboarding.OnBoardViewModel
 import com.tejas.relifemedicalsystemtest.ui.onboarding.SuccessfulOnBoardState
+import com.tejas.relifemedicalsystemtest.utils.toast
 import kotlinx.coroutines.launch
 
-class FragmentOtpDialog(
+class OtpDialogFragment(
     private val listener: OnDialogListeners
 ) : DialogFragment() {
 
@@ -53,7 +54,7 @@ class FragmentOtpDialog(
         }
 
         dialogBinding.tvOtpHint.setOnClickListener {
-            Toast.makeText(requireActivity(), getString(R.string.otp_hint), Toast.LENGTH_SHORT).show()
+            context?.toast(getString(R.string.otp_hint))
         }
 
         dialogBinding.tvOtpSubmit.setOnClickListener {

@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.tejas.relifemedicalsystemtest.R
 import com.tejas.relifemedicalsystemtest.core.BaseFragment
+import com.tejas.relifemedicalsystemtest.data.SessionManager
 import com.tejas.relifemedicalsystemtest.data.models.SignUpModel
 import com.tejas.relifemedicalsystemtest.databinding.FragmentSignUpBinding
 import com.tejas.relifemedicalsystemtest.ui.MainActivity
@@ -16,11 +17,17 @@ import com.tejas.relifemedicalsystemtest.ui.onboarding.FailedOnBoardState
 import com.tejas.relifemedicalsystemtest.ui.onboarding.OnBoardViewModel
 import com.tejas.relifemedicalsystemtest.ui.onboarding.SuccessfulOnBoardState
 import com.tejas.relifemedicalsystemtest.utils.clearTaskAndOpenActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up),
     View.OnClickListener, OnDialogListeners{
+
+    @Inject
+    lateinit var sessionManager: SessionManager
 
     private val viewModel: OnBoardViewModel by viewModels()
 
@@ -52,17 +59,16 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
     }
 
     private fun showOtpDialog() {
-        val otpDialog = FragmentOtpDialog(
-            this@SignUpFragment
-        )
+        val otpDialog = OtpDialogFragment(listener = this@SignUpFragment)
         otpDialog.show(childFragmentManager, otpDialog.tag)
     }
 
     override fun otpSuccessListener(message: String) {
         showDefaultSnack(message = message)
+        sessionManager.isLoggedIn = true
         lifecycleScope.launch {
             delay(2000)
-            requireContext().clearTaskAndOpenActivity(MainActivity::class.java)
+            context?.clearTaskAndOpenActivity(MainActivity::class.java)
         }
     }
 

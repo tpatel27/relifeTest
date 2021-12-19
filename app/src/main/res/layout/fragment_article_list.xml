@@ -10,6 +10,7 @@
             name="noData"
             type="java.lang.Boolean"
             />
+
         <variable
             name="data"
             type="java.util.List"
@@ -52,6 +53,19 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/label_feeds"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_logout"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_article_feed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_article_feed"
+            app:srcCompat="@drawable/ic_logout"
             />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

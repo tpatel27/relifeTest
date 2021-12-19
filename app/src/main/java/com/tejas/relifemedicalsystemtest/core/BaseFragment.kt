@@ -9,17 +9,13 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import com.tejas.relifemedicalsystemtest.R
-import com.tejas.relifemedicalsystemtest.ui.MainViewModel
 
 abstract class BaseFragment<T : ViewDataBinding> constructor(@LayoutRes private val layoutResId: Int) :
     Fragment() {
 
     lateinit var binding: T
-
-    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,5 +50,4 @@ abstract class BaseFragment<T : ViewDataBinding> constructor(@LayoutRes private 
         )
         snackBar?.show()
     }
-
 }
