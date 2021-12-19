@@ -138,12 +138,6 @@ dependencies {
     implementation("androidx.paging:paging-runtime:${Versions.paging}")
     implementation("androidx.paging:paging-runtime-ktx:${Versions.paging}")
 
-    //firebase-bom
-//    implementation(platform("com.google.firebase:firebase-bom:26.5.0"))
-//    implementation("com.google.firebase:firebase-messaging-ktx")
-//    implementation("com.google.firebase:firebase-analytics-ktx")
-//    implementation("com.google.firebase:firebase-crashlytics-ktx")
-
     //permissions handler
     implementation("com.github.quickpermissions:quickpermissions-kotlin:${Versions.quickPermissions}")
 
