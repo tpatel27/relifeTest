@@ -20,6 +20,7 @@
     <!--desc-->
     <string name="desc_enter_the_otp_you_received_on_your_registered_number_to_proceed">Enter the otp you received on your registered phone number to proceed.</string>
     <string name="desc_otp_success">OTP verified successfully</string>
+    <string name="desc_provide_permissions">Please provide permissions to download</string>
 
     <!--error-->
     <string name="error_unexpected">Unexpected error occurred! please again try later.</string>
